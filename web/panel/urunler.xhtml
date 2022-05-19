@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template='/template.xhtml'>
+
+
+    <ui:define name='content'>
+            <hr />
+            <h:form>
+                <div class="mb-3">
+                    Kategoriler: <h:selectOneMenu styleClass="form-select form-select-lg mb-3" value="#{urunlerBean.entity.kategoriler}" converter = "kategorilerConverter" >
+                        <f:selectItems value="#{kategorilerBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.kategoriadi}" />
+
+
+                    </h:selectOneMenu>
+
+                    <br/>
+                    Baslik: <h:inputText styleClass="form-control" value="#{urunlerBean.entity.baslik}"/><br/>
+                    UrunDetayi: <h:inputText styleClass="form-control" value="#{urunlerBean.entity.urundetayi}" /><br/>
+                    Kampanyali_Fiyat: <h:inputText styleClass="form-control" value="#{urunlerBean.entity.kampanyali_fiyati}" /><br/>
+                    NormalFiyat: <h:inputText styleClass="form-control" value="#{urunlerBean.entity.normal_fiyati}" /><br/>
+                    Stok: <h:inputText styleClass="form-control" value="#{urunlerBean.entity.stok}" /><br/>
+                    <h:commandButton styleClass="btn btn-success btn-sm" rendered= "#{urunlerBean.entity.id==0}" action="#{urunlerBean.create()}" value="Create"/>
+                    <h:commandButton styleClass="btn btn-primary btn-sm" rendered= "#{urunlerBean.entity.id!=0}" action="#{urunlerBean.update()}" value="Update"/>
+                </div>
+            </h:form> 
+            <hr />
+            <h:form>
+                <h:dataTable styleClass="table table-striped table-hover" value ="#{urunlerBean.list}" var="entity">
+                    <h:column>
+
+                        <f:facet name="header">ID</f:facet>
+                            #{entity.id}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">Kategoriler</f:facet>
+                            #{entity.kategoriler.kategoriadi}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">Baslik</f:facet>
+                            #{entity.baslik}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">UrunDetayi</f:facet>
+                            #{entity.urundetayi}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">KampanyaliFiyat</f:facet>
+                            #{entity.kampanyali_fiyati}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">NormalFiyat</f:facet>
+                            #{entity.normal_fiyati}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">Stok</f:facet>
+                            #{entity.stok}
+                    </h:column>
+                    <h:column>
+
+                        <f:facet name="header">ADMINISTRATION</f:facet>
+                        <h:commandButton styleClass="btn btn-danger btn-sm" action="#{urunlerBean.delete(entity)}" value="Delete"/>
+                        <h:commandButton styleClass="btn btn-primary btn-sm" action="#{urunlerBean.setEntity(entity)}" value="Update"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+    </ui:define>
+</ui:composition>
+
