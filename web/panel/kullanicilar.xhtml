@@ -8,65 +8,61 @@
 
 
     <ui:define name='content'>
-            <hr />
-            <h:form>
-                <div class="mb-3">
-                    Kuladi: <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.kuladi}"/>
-                    Sifre:  <h:inputSecret styleClass="form-control" value="#{kullanicilarBean.entity.sifre}" />
-                    Adi:    <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.adi}" />
-                    Soyadi: <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.soyadi}" />
-                    mail:   <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.mail}" />
-                    <h:commandButton styleClass="btn btn-success btn-sm" rendered= "#{kullanicilarBean.entity.id==0}" action="#{kullanicilarBean.create()}" value="Create"/>
-                    <h:commandButton styleClass="btn btn-primary btn-sm" rendered= "#{kullanicilarBean.entity.id!=0}" action="#{kullanicilarBean.update()}" value="Update"/>
-                    <h:commandButton rendered= "#{kullanicilarBean.entity.id!=0}" action="#{kullanicilarBean.clear()}" value="Clear Form"/>
-                </div>
-            </h:form> 
-            <hr />
-            <h:form>
-                <h:dataTable styleClass="table table-striped" value ="#{kullanicilarBean.list}" var="entity">
-                    <h:column>
+        <hr />
+        <h:form>
+            <div class="mb-3">
+                Kuladi: <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.kuladi}"/>
+                Sifre:  <h:inputSecret styleClass="form-control" value="#{kullanicilarBean.entity.sifre}" />
+                Adi:    <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.adi}" />
+                Soyadi: <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.soyadi}" />
+                mail:   <h:inputText styleClass="form-control" value="#{kullanicilarBean.entity.mail}" />
+                <h:commandButton styleClass="btn btn-success btn-sm" rendered= "#{kullanicilarBean.entity.id==0}" action="#{kullanicilarBean.create()}" value="Create"/>
+                <h:commandButton styleClass="btn btn-primary btn-sm" rendered= "#{kullanicilarBean.entity.id!=0}" action="#{kullanicilarBean.update()}" value="Update"/>
+                <h:commandButton rendered= "#{kullanicilarBean.entity.id!=0}" action="#{kullanicilarBean.clear()}" value="Clear Form"/>
+            </div>
+        </h:form> 
+        <hr />
+        <h:form>
+            <h:dataTable styleClass="table table-striped" value ="#{kullanicilarBean.list}" var="entity">
+                <h:column>
 
-                        <f:facet name="header">ID</f:facet>
-                            #{entity.id}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{entity.id}
+                </h:column>
+                <h:column>
 
-                        <f:facet name="header">Kuladi</f:facet>
-                            #{entity.kuladi}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">Kuladi</f:facet>
+                        #{entity.kuladi}
+                </h:column>
+                <h:column>
 
-                        <f:facet name="header">Sifre</f:facet>
-                            #{entity.sifre}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">Sifre</f:facet>
+                        #{entity.sifre}
+                </h:column>
+                <h:column>
 
-                        <f:facet name="header">Adi</f:facet>
-                            #{entity.adi}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">Adi</f:facet>
+                        #{entity.adi}
+                </h:column>
+                <h:column>
 
-                        <f:facet name="header">Soyadi</f:facet>
-                            #{entity.soyadi}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">Soyadi</f:facet>
+                        #{entity.soyadi}
+                </h:column>
+                <h:column>
 
-                        <f:facet name="header">Mail</f:facet>
-                            #{entity.mail}
-                    </h:column>
-                    <h:column>
+                    <f:facet name="header">Mail</f:facet>
+                        #{entity.mail}
+                </h:column>
 
-                        <f:facet name="header">Tarih</f:facet>
-                            #{entity.tarih}
-                    </h:column>
-                    <h:column>
+                <h:column>
 
-                        <f:facet name="header">ADMINISTRATION</f:facet>
-                        <h:commandButton styleClass="btn btn-danger btn-sm" action="#{kullanicilarBean.delete(entity)}" value="Delete"/>
-                        <h:commandButton styleClass="btn btn-primary btn-sm" action="#{kullanicilarBean.setEntity(entity)}" value="Update"/>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
+                    <f:facet name="header">ADMINISTRATION</f:facet>
+                    <h:commandButton styleClass="btn btn-danger btn-sm" action="#{kullanicilarBean.delete(entity)}" value="Delete"/>
+                    <h:commandButton styleClass="btn btn-primary btn-sm" action="#{kullanicilarBean.setEntity(entity)}" value="Update"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
     </ui:define>
 </ui:composition>
 

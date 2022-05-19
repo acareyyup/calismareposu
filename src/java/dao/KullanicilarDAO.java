@@ -26,7 +26,7 @@ public class KullanicilarDAO extends DBConnection {
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
-                c = new Kullanicilar(rs.getInt("id"), rs.getString("kategoriler"), rs.getString("baslik"), rs.getString("adi"), rs.getString("soyadi"), rs.getString("mail"), rs.getTimestamp("tarih"));
+                c = new Kullanicilar(rs.getInt("id"), rs.getString("kategoriler"), rs.getString("baslik"), rs.getString("adi"), rs.getString("soyadi"), rs.getString("mail"));
             }
 
         } catch (Exception e) {
@@ -87,7 +87,7 @@ public class KullanicilarDAO extends DBConnection {
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
-                list.add(new Kullanicilar(rs.getInt("id"), rs.getString("kuladi"), rs.getString("sifre"), rs.getString("adi"), rs.getString("soyadi"), rs.getString("mail"), rs.getTimestamp("tarih")));
+                list.add(new Kullanicilar(rs.getInt("id"), rs.getString("kuladi"), rs.getString("sifre"), rs.getString("adi"), rs.getString("soyadi"), rs.getString("mail")));
             }
 
         } catch (Exception e) {

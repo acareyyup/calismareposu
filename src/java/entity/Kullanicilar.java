@@ -1,6 +1,5 @@
 package entity;
 
-import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
@@ -15,19 +14,19 @@ public class Kullanicilar {
     private String adi;
     private String soyadi;
     private String mail;
-    private Timestamp tarih;
+
 
     public Kullanicilar() {
     }
 
-    public Kullanicilar(int id, String kuladi, String sifre, String adi, String soyadi, String mail, Timestamp tarih) {
+    public Kullanicilar(int id, String kuladi, String sifre, String adi, String soyadi, String mail) {
         this.id = id;
         this.kuladi = kuladi;
         this.sifre = sifre;
         this.adi = adi;
         this.soyadi = soyadi;
         this.mail = mail;
-        this.tarih = tarih;
+       
     }
 
     public int getId() {
@@ -78,14 +77,7 @@ public class Kullanicilar {
         this.mail = mail;
     }
 
-    public Timestamp getTarih() {
-        return tarih;
-    }
-
-    public void setTarih(Timestamp tarih) {
-        this.tarih = tarih;
-    }
-
+  
     @Override
     public int hashCode() {
         int hash = 7;
